@@ -1,2 +1,2 @@
-# psql -d $POSTGRES_DBNAME -f ./extensions.sql
-psql -d $POSTGRES_DBNAME -f ./db_init.sql
+psql -d $POSTGRES_DB -U postgis_user \
+    -f /docker-entrypoint-initdb.d/sql_files/db_init.sql

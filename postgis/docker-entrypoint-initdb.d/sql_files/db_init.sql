@@ -1,5 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS files;
-CREATE TABLE IF NOT EXISTS files.test (
+CREATE TABLE  files.test_table (
     coltest varchar(20)
 );
 

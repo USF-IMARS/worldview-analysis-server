@@ -13,18 +13,21 @@ services:
             - POSTGRES_PASS=${POSTGRES_PASS}
             - POSTGRES_PORT=5432
             - POSTGRES_DB=worldview_images
+            - SCHEMA_NAME=files_schema
+            - TABLE_NAME=files_table
 
     postgis:
         container_name: postgis
-        image: kartoza/postgis:11.5-2.8
+        build: ./postgis
         environment:
             - POSTGRES_USER=postgis_user
-            - POSTGRES_PASS=${POSTGRES_PASS}
+            - POSTGRES_PASSWORD=${POSTGRES_PASS}
             - ALLOW_IP_RANGE=0.0.0.0/0
             - POSTGRES_DB=worldview_images
             # - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
+            # - POSTGRES_HOST_AUTH_METHOD=trust" to allow all conns. *not* recommended.
         ports:
             - "5432:5432"
         volumes:
             - ./postgis/data-dir:/var/lib/postgresql
-            - ./postgis/docker-entrypoint-initdb.d/1_setup.sh:/docker-entrypoint-initdb.d/setup-db.sh
+            # - ./postgis/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d/
