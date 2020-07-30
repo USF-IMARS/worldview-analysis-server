@@ -8,7 +8,7 @@ services:
             - 5000:5000
         environment:
             - FLASK_APP=mbon_data_uploader  # TODO: this can be deleted?
-            - POSTGIS_HOSTNAME=localhost:5432
+            - POSTGIS_HOSTNAME=tylar-pc.marine.usf.edu
             - POSTGRES_USER=postgis_user
             - POSTGRES_PASS=${POSTGRES_PASS}
             - POSTGRES_PORT=5432
@@ -26,6 +26,9 @@ services:
             - POSTGRES_DB=worldview_images
             # - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
             # - POSTGRES_HOST_AUTH_METHOD=trust" to allow all conns. *not* recommended.
+            - SCHEMA_NAME=files_schema
+            - TABLE_NAME=files_table
+
         ports:
             - "5432:5432"
         volumes:
