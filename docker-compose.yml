@@ -14,7 +14,7 @@ services:
             - POSTGRES_PORT=5432
             - POSTGRES_DB=worldview_images
             - SCHEMA_NAME=files_schema
-            - TABLE_NAME=files_table
+            - TABLE_NAME=files
 
     postgis:
         container_name: postgis
@@ -27,7 +27,6 @@ services:
             # - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
             # - POSTGRES_HOST_AUTH_METHOD=trust" to allow all conns. *not* recommended.
             - SCHEMA_NAME=files_schema
-            - TABLE_NAME=files_table
 
         ports:
             - "5432:5432"
