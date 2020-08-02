@@ -15,6 +15,8 @@ services:
             - POSTGRES_DB=worldview_images
             - SCHEMA_NAME=files_schema
             - TABLE_NAME=files
+        volumes:
+            - /srv/imars-objects:/srv/imars-objects:ro,slave
 
     postgis:
         container_name: postgis
